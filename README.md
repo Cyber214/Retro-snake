@@ -1,15 +1,15 @@
 # Retro-snake
 Draw board by specifying cell size from MDN:
-Constant for grid size
-Define a list of variables:
-Set snake initial position on the board
-Set initial food position on the grid
-Set Empty array to store score history
-Set initial score to 0
-Set dx and dy to represent position on x and y axis on the grid
-Cached elements:
-Cached element for score
-Cashed element for score list
+<!-- Constant for grid size -->
+<!-- Define a list of variables: -->
+<!-- Set snake initial position on the board -->
+<!-- Set initial food position on the grid -->
+<!-- Set Empty array to store score history -->
+<!-- Set initial score to 0 -->
+<!-- Set dx and dy to represent position on x and y axis on the grid -->
+<!-- Cached elements: -->
+<!-- Cached element for score -->
+<!-- Cashed element for score list -->
 Event listener:
 Add an event listener for the arrow keys to change direction of snake
 Function draw cell:
