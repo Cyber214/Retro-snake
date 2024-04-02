@@ -23,13 +23,20 @@ let scoreHistory = []
 const gameBoard = document.querySelector("#gameBoard")
 const scoreEl = document.querySelector("#score")
 const scoreList = document.querySelector("#scoreList")
-const startGameBtn = document.querySelector("startGameBtn")
-
+const startGameBtn = document.querySelector("#startGameBtn")
+console.log(startGameBtn)
 //-----------event listners-------//
 
-document.addEventListener("keydown", changeDir)
+document.addEventListener("keydown", changeDirection)
+startGameBtn.addEventListener("click", startGame)
 
 //-----------functions-----------//
+
+
+
+function startGame() {
+  board()
+}
 
 function board() {
   gameBoard.innerHTML = ""

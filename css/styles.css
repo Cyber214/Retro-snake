@@ -9,6 +9,15 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100vh;
+}
+
+.cell {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #7ebd73;
+  box-sizing: border-box;
+  background-color: #97d98a;
 }
 
 #startGameBtn {
