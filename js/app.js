@@ -32,8 +32,6 @@ startGameBtn.addEventListener("click", startGame)
 
 //-----------functions-----------//
 
-
-
 function startGame() {
   board()
 }
@@ -64,3 +62,9 @@ function changeDirection(event) {
     dx = 1
   }
 }
+
+const themeToggleBtn = document.getElementById('theme-toggle')
+
+themeToggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode')
+})
