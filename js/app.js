@@ -16,6 +16,7 @@ let food = { x: 15, y: 15}
 let dx = 0
 let dy = 0
 let score = 0
+let playerName = ""
 let scoreHistory = []
 
 //--------cached elements---------//
@@ -36,6 +37,11 @@ function startGame() {
   generateBoard()
   generateSnake()
   generateFood()
+  savePlayerName()
+}
+
+function resetGame() {
+
 }
 
 function generateBoard() {
@@ -59,9 +65,8 @@ function generateSnake() {
   })
 }
 
-function generateFood() {
-  const foodCell = document.querySelector(".cell[data-x='" + food.x + "'][data-y='" + food.y + "']")
-  foodCell.classList.add("food")
+function moveSnake() {
+
 }
 
 function changeDirection(event) {
@@ -78,5 +83,22 @@ function changeDirection(event) {
   } else if (key === "ArrowRight" && dx === 0) {
     dx = 1
     dy = 0
+  }
+}
+
+function generateFood() {
+  const foodCell = document.querySelector(".cell[data-x='" + food.x + "'][data-y='" + food.y + "']")
+  foodCell.classList.add("food")
+}
+
+function increaseScore() {
+  score += 10
+  scoreEl.textContent = score
+}
+
+function saveScore() {
+  scoreHistory.push({name: playerName, score: score })
+  if (scoreHistory.lenght > 5) {
+    scoreHistory.shift()
   }
 }

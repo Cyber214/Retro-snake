@@ -69,7 +69,7 @@ body {
   border: none;
   color: #000000BF;
   background-color: rgb(155, 186, 90);
-  margin-top: 20px;
+  margin-top: 10px;
   font-size: 25px;
 }
 
@@ -79,9 +79,18 @@ body {
   color:rgb(155, 186, 90)
 }
 
-#scoreList {
+#Header {
   font-family: "Silkscreen", sans-serif;
+  font-weight: bold;
+  border: none;
   color: #000000BF;
-  margin-top: 20px;
+  background-color: rgb(155, 186, 90);
+  margin-top: 10px;
   font-size: 25px;
+}
+
+#Header:hover {
+  font-family: "Silkscreen", sans-serif;
+  background-color: #000000BF;
+  color:rgb(155, 186, 90)
 }
