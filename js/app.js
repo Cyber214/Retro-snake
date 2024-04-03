@@ -31,7 +31,7 @@ function startGame() {
   generateSnake()
   generateFood()
   savePlayerName()
-  gameInterval
+  gameInterval = setInterval(moveSnake, 1000)
 }
 
 function updateGame() {
@@ -72,8 +72,8 @@ function moveSnake() {
   snake.unshift(head)
 
   if (head.x === food.x && head.y === food.y) {
-    food.x = Math.floor(Math.random() * (gameBoard.width / boardSize))
-    food.y = Math.floor(Math.random() * (gameBoard.height / boardSize))
+    food.x = Math.floor(Math.random() * (boardSize))
+    food.y = Math.floor(Math.random() * (boardSize))
     increaseScore()
   } else {
     snake.pop()
@@ -82,16 +82,16 @@ function moveSnake() {
 
 function changeDirection(event) {
   const key = event.key
-  if (key === "ArrowUp" && dy === 0) {
+  if (key === "Arrow Up" && dy === 0) {
     dx = 0
     dy = -1
-  } else if (key === "ArrowDown" && dy === 0) {
+  } else if (key === "Arrow Down" && dy === 0) {
     dx = 0
     dy = 1
-  } else if (key === "ArrowLeft" && dx === 0) {
+  } else if (key === "Arrow Left" && dx === 0) {
     dx = -1
     dy = 0
-  } else if (key === "ArrowRight" && dx === 0) {
+  } else if (key === "Arrow Right" && dx === 0) {
     dx = 1
     dy = 0
   }
