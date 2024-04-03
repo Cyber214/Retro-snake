@@ -24,15 +24,11 @@ const gameBoard = document.querySelector("#gameBoard")
 const scoreEl = document.querySelector("#score")
 const scoreList = document.querySelector("#scoreList")
 const startGameBtn = document.querySelector("#startGameBtn")
-const themeToggleBtn = document.getElementById('theme-toggle')
 
 //-----------event listners-------//
 
 document.addEventListener("keydown", changeDirection)
 startGameBtn.addEventListener("click", startGame)
-themeToggleBtn.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode')
-})
 
 //-----------functions-----------//
 
