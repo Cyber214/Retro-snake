@@ -1,13 +1,6 @@
 //-----------constants---------//
 
 const boardSize = 20
-// let cellObj = {
-//   isHead: false,
-//   isBody: false,
-//   isApple: false,
-//   x: 0,
-//   y: 0
-// }
 
 //------------variables--------//
 
@@ -41,7 +34,11 @@ function startGame() {
 }
 
 function resetGame() {
-
+  snake = [{ x: 10, y: 10 }]
+  dx = 0
+  dy = 0
+  score = 0
+  playerName = ""
 }
 
 function generateBoard() {
@@ -66,7 +63,8 @@ function generateSnake() {
 }
 
 function moveSnake() {
-
+  const head = {x: snake[0].x, y: snake[0].y}
+  snake.unshift(head)
 }
 
 function changeDirection(event) {
@@ -98,7 +96,21 @@ function increaseScore() {
 
 function saveScore() {
   scoreHistory.push({name: playerName, score: score })
-  if (scoreHistory.lenght > 5) {
+  if (scoreHistory.length > 5) {
     scoreHistory.shift()
   }
+  displayScoreHistory()
+}
+
+function savePlayerName() {
+  playerName = document.querySelector("#playerName").value
+}
+
+function displayScoreHistory() {
+  scoreList.innerHTML = ""
+  scoreHistory.forEach(item => {
+    const listItem = document.createElement("li")
+    listItem.textContent = item.name + ": " + item.score
+    scoreList.appendChild(listItem)
+  })
 }
