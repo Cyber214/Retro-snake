@@ -12,7 +12,7 @@ const boardSize = 20
 //------------variables--------//
 
 let snake = [{ x: 10, y: 10 }]
-let food = [{ x: 15, y: 15}]
+let food = { x: 15, y: 15}
 let dx = 0
 let dy = 0
 let score = 0
@@ -39,6 +39,7 @@ themeToggleBtn.addEventListener('click', () => {
 function startGame() {
   generateBoard()
   generateSnake()
+  generateFood()
 }
 
 function generateBoard() {
@@ -59,8 +60,12 @@ function generateSnake() {
   snake.forEach(segment => {
     const snakeCell = document.querySelector(".cell[data-x='" + segment.x + "'][data-y='" + segment.y + "']")
     snakeCell.classList.add("snake")
-    console.log(snakeCell)
   })
+}
+
+function generateFood() {
+  const foodCell = document.querySelector(".cell[data-x='" + food.x + "'][data-y='" + food.y + "']")
+  foodCell.classList.add("food")
 }
 
 function changeDirection(event) {

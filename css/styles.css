@@ -33,7 +33,7 @@ body.dark-mode {
   max-height: 25px;
   box-sizing: border-box;
   background-color: #b2eca7;
-  border: 1px solid #a6d89c;
+  border: 1px solid #b0e6a5;
 }
 
 #scoreList {
@@ -48,4 +48,8 @@ body.dark-mode {
 
 .snake {
   background-color: #535353;
+}
+
+.food {
+  background-color: #947575;
 }
