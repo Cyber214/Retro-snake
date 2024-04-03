@@ -41,7 +41,7 @@ body {
 }
 
 .food {
-  background-color: rgb(77, 58, 58);
+  background-color: rgb(65, 85, 55);
 }
 
 #playerName {
@@ -62,7 +62,11 @@ body {
   color:rgb(155, 186, 90);
 }
 
-#playerName:hover::placeholder{
+#playerName::placeholder {
+  color: #000000BF;
+}
+
+#playerName:hover::placeholder {
   color:rgb(155, 186, 90);
 }
 

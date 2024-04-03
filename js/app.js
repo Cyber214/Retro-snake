@@ -31,6 +31,11 @@ function startGame() {
   generateSnake()
   generateFood()
   savePlayerName()
+  gameInterval
+}
+
+function updateGame() {
+
 }
 
 function resetGame() {
@@ -63,8 +68,16 @@ function generateSnake() {
 }
 
 function moveSnake() {
-  const head = {x: snake[0].x, y: snake[0].y}
+  const head = { x: snake[0].x + dx, y: snake[0].y + dy}
   snake.unshift(head)
+
+  if (head.x === food.x && head.y === food.y) {
+    food.x = Math.floor(Math.random() * (gameBoard.width / boardSize))
+    food.y = Math.floor(Math.random() * (gameBoard.height / boardSize))
+    increaseScore()
+  } else {
+    snake.pop()
+  }
 }
 
 function changeDirection(event) {
@@ -96,9 +109,10 @@ function increaseScore() {
 
 function saveScore() {
   scoreHistory.push({name: playerName, score: score })
-  if (scoreHistory.length > 5) {
-    scoreHistory.shift()
-  }
+  scoreHistory.sort((a, b) => {
+    b.score - a.score
+  })
+  scoreHistory = scoreHistory.slice(0, 5)
   displayScoreHistory()
 }
 
