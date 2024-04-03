@@ -11,7 +11,7 @@ const boardSize = 20
 
 //------------variables--------//
 
-let snake = [{ x: 0, y: 0 }]
+let snake = [{ x: 10, y: 10 }]
 let food = [{ x: 15, y: 15}]
 let dx = 0
 let dy = 0
@@ -24,19 +24,24 @@ const gameBoard = document.querySelector("#gameBoard")
 const scoreEl = document.querySelector("#score")
 const scoreList = document.querySelector("#scoreList")
 const startGameBtn = document.querySelector("#startGameBtn")
-console.log(startGameBtn)
+const themeToggleBtn = document.getElementById('theme-toggle')
+
 //-----------event listners-------//
 
 document.addEventListener("keydown", changeDirection)
 startGameBtn.addEventListener("click", startGame)
+themeToggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode')
+})
 
 //-----------functions-----------//
 
 function startGame() {
-  board()
+  generateBoard()
+  generateSnake()
 }
 
-function board() {
+function generateBoard() {
   gameBoard.innerHTML = ""
   for (let y = 0; y < boardSize; y++) {
     for (let x = 0; x < boardSize; x++) {
@@ -50,21 +55,27 @@ function board() {
   }
 }
 
+function generateSnake() {
+  snake.forEach(segment => {
+    const snakeCell = document.querySelector(".cell[data-x='" + segment.x + "'][data-y='" + segment.y + "']")
+    snakeCell.classList.add("snake")
+    console.log(snakeCell)
+  })
+}
+
 function changeDirection(event) {
   const key = event.key
   if (key === "ArrowUp" && dy === 0) {
+    dx = 0
     dy = -1
   } else if (key === "ArrowDown" && dy === 0) {
+    dx = 0
     dy = 1
   } else if (key === "ArrowLeft" && dx === 0) {
     dx = -1
+    dy = 0
   } else if (key === "ArrowRight" && dx === 0) {
     dx = 1
+    dy = 0
   }
 }
-
-const themeToggleBtn = document.getElementById('theme-toggle')
-
-themeToggleBtn.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode')
-})

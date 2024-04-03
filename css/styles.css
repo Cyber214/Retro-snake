@@ -1,6 +1,8 @@
 body.light-mode {
   background-color: #ffffff;
   color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10h10v10H0V10zM10 0h10v10H10V0z' fill='%237fb972' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+  box-sizing: border-box;
 }
 
 body.dark-mode {
@@ -29,9 +31,9 @@ body.dark-mode {
   height: 25px;
   max-width: 25px;
   max-height: 25px;
-  background-color: #97d98a;
-  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10h10v10H0V10zM10 0h10v10H10V0z' fill='%237fb972' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
   box-sizing: border-box;
+  background-color: #b2eca7;
+  border: 1px solid #a6d89c;
 }
 
 #scoreList {
@@ -42,4 +44,8 @@ body.dark-mode {
 #startGameBtn {
   margin-top: 20px;
   font-size: 18px;
+}
+
+.snake {
+  background-color: #535353;
 }
