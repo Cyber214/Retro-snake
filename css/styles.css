@@ -1,20 +1,27 @@
 body {
   background-color: rgb(155, 186, 90);
-  color: #000000bf;
-}
-
-#head1 {
-  font-size: 55px;
-  font-family: "Silkscreen", sans-serif;
-  text-align: center;
-}
-
-#gameBoard {
+  color: #080c07bf;
   display: flex;
-  flex-wrap: wrap;
-  width: 500px;
-  height: 500px;
-  border: 5px solid #000000bf;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+
+.btn {
+  font-family: "Silkscreen", sans-serif;
+  font-size: 25px;
+  border: none;
+  border-radius: 2px;
+  color: #080c07bf;
+  background-color: rgb(155, 186, 90);
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.btn:hover {
+  background-color: #080c07bf;
+  color:rgb(155, 186, 90)
 }
 
 #gameContainer {
@@ -22,6 +29,14 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+#gameBoard {
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+  height: 500px;
+  border: 5px solid #080c07bf;
 }
 
 .cell {
@@ -34,18 +49,18 @@ body {
 }
 
 .snake {
-  background-color: #000000bf;
+  background-color: #080c07bf;
 }
 
 .food {
-  background-color: #000000bf;
+  background-color: #080c07bf;
 }
 
 #playerName {
   font-family: "Silkscreen", sans-serif;
   border: none;
   border-radius: 2px;
-  color: #000000bf;
+  color: #080c07bf;
   text-align: center;
   width: 400px;
   background-color: rgb(155, 186, 90);
@@ -55,54 +70,33 @@ body {
 
 #playerName:hover {
   font-family: "Silkscreen", sans-serif;
-  background-color: #000000bf;
+  background-color: #080c07bf;
   color:rgb(155, 186, 90);
 }
 
 #playerName::placeholder {
-  color: #000000bf;
+  color: #080c07bf;
 }
 
 #playerName:hover::placeholder {
   color:rgb(155, 186, 90);
 }
 
-#startGameBtn {
-  font-family: "Silkscreen", sans-serif;
-  border: none;
-  border-radius: 2px;
-  color: #000000bf;
-  width: 330px;
-  background-color: rgb(155, 186, 90);
-  margin-top: 10px;
-  font-size: 25px;
-}
-
-#startGameBtn:hover {
-  font-family: "Silkscreen", sans-serif;
-  background-color: #000000bf;
-  color:rgb(155, 186, 90)
-}
-
-#Header {
-  font-family: "Silkscreen", sans-serif;
+#head1 {
   font-weight: bold;
-  border: none;
-  border-radius: 2px;
-  color: #000000bf;
-  background-color: rgb(155, 186, 90);
-  margin-top: 10px;
-  font-size: 25px;
+  font-size: 50px;
 }
 
-#Header:hover {
-  font-family: "Silkscreen", sans-serif;
-  background-color: #000000bf;
-  color:rgb(155, 186, 90)
+#startGameBtn {
+  width: 330px;
+}
+
+#head2 {
+  font-weight: bold;
 }
 
 li {
   font-family: "Silkscreen", sans-serif;
-  color: #000000bf;
+  color: #080c07bf;
   font-size: 25px;
 }

@@ -52,6 +52,7 @@ function resetGame() {
   dy = 0
   score = 0
   playerName = ""
+  scoreEl.textContent = score
 }
 
 function generateBoard() {
