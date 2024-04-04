@@ -28,11 +28,21 @@ startGameBtn.addEventListener("click", startGame)
 
 function startGame() {
   startGameBtn.disabled = true
-  gameInterval = setInterval(moveSnake, 100)
+  resetGame()
+  gameInterval = setInterval(updateGame, 100)
 }
 
+//if there is a collision stop the game if not continue
 function updateGame() {
-
+  if (checkCollision()) {
+    saveScore()
+    startGameBtn.disabled = true
+  } else {
+    generateBoard()
+    generateFood()
+    generateSnake()
+    moveSnake()
+  }
 }
 
 function resetGame() {
@@ -41,7 +51,6 @@ function resetGame() {
   dy = 0
   score = 0
   playerName = ""
-  scoreElement.textContent = score
 }
 
 function generateBoard() {
