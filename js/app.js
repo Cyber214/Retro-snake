@@ -29,7 +29,7 @@ startGameBtn.addEventListener("click", startGame)
 function startGame() {
   startGameBtn.disabled = true
   resetGame()
-  gameInterval = setInterval(updateGame, 500)
+  gameInterval = setInterval(updateGame, 100)
 }
 
 //if there is a collision stop the game if not continue
@@ -90,16 +90,16 @@ function moveSnake() {
 
 function changeDirection(event) {
   const key = event.key
-  if (key === "Arrow Up" && dy === 0) {
+  if (key === "ArrowUp" && dy === 0) {
     dx = 0
     dy = -1
-  } else if (key === "Arrow Down" && dy === 0) {
+  } else if (key === "ArrowDown" && dy === 0) {
     dx = 0
     dy = 1
-  } else if (key === "Arrow Left" && dx === 0) {
+  } else if (key === "ArrowLeft" && dx === 0) {
     dx = -1
     dy = 0
-  } else if (key === "Arrow Right" && dx === 0) {
+  } else if (key === "ArrowRight" && dx === 0) {
     dx = 1
     dy = 0
   }
