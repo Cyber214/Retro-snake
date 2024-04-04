@@ -27,11 +27,8 @@ startGameBtn.addEventListener("click", startGame)
 //-----------functions-----------//
 
 function startGame() {
-  generateBoard()
-  generateSnake()
-  generateFood()
-  savePlayerName()
-  gameInterval = setInterval(moveSnake, 1000)
+  startGameBtn.disabled = true
+  gameInterval = setInterval(moveSnake, 100)
 }
 
 function updateGame() {
@@ -44,6 +41,7 @@ function resetGame() {
   dy = 0
   score = 0
   playerName = ""
+  scoreElement.textContent = score
 }
 
 function generateBoard() {
@@ -68,7 +66,7 @@ function generateSnake() {
 }
 
 function moveSnake() {
-  const head = { x: snake[0].x + dx, y: snake[0].y + dy}
+  const head = { x: snake[0].x + dx, y: snake[0].y + dy }
   snake.unshift(head)
 
   if (head.x === food.x && head.y === food.y) {
@@ -97,6 +95,14 @@ function changeDirection(event) {
   }
 }
 
+function checkCollision() {
+  const head = snake[0]
+  if (head.x < 0 || head.x > boardSize || head.y < 0 || head.y > boardSize ) {
+    return true
+  }
+  return false
+}
+
 function generateFood() {
   const foodCell = document.querySelector(".cell[data-x='" + food.x + "'][data-y='" + food.y + "']")
   foodCell.classList.add("food")
@@ -107,6 +113,10 @@ function increaseScore() {
   scoreEl.textContent = score
 }
 
+function savePlayerName() {
+  playerName = document.querySelector("#playerName").value
+}
+
 function saveScore() {
   scoreHistory.push({name: playerName, score: score })
   scoreHistory.sort((a, b) => {
@@ -114,10 +124,6 @@ function saveScore() {
   })
   scoreHistory = scoreHistory.slice(0, 5)
   displayScoreHistory()
-}
-
-function savePlayerName() {
-  playerName = document.querySelector("#playerName").value
 }
 
 function displayScoreHistory() {

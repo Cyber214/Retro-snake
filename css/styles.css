@@ -1,7 +1,6 @@
 body {
   background-color: rgb(155, 186, 90);
-  color: rgb(0, 0, 0, 0.75);
-  box-sizing: border-box;
+  color: #000000bf;
 }
 
 #head1 {
@@ -15,8 +14,7 @@ body {
   flex-wrap: wrap;
   width: 500px;
   height: 500px;
-  border-radius: 2px;
-  border: 5px solid #000000BF
+  border: 5px solid #000000bf;
 }
 
 #gameContainer {
@@ -31,26 +29,25 @@ body {
   height: 25px;
   max-width: 25px;
   max-height: 25px;
-  border-radius: 2px;
   box-sizing: border-box;
   background-color: rgb(155, 186, 90);
 }
 
 .snake {
-  background-color: #000000BF;
+  background-color: #000000bf;
 }
 
 .food {
-  background-color: rgb(65, 85, 55);
+  background-color: #000000bf;
 }
 
 #playerName {
   font-family: "Silkscreen", sans-serif;
   border: none;
   border-radius: 2px;
-  color: #000000BF;
+  color: #000000bf;
   text-align: center;
-  width: 30%;
+  width: 400px;
   background-color: rgb(155, 186, 90);
   margin-top: 20px;
   font-size: 25px;
@@ -58,12 +55,12 @@ body {
 
 #playerName:hover {
   font-family: "Silkscreen", sans-serif;
-  background-color: #000000BF;
+  background-color: #000000bf;
   color:rgb(155, 186, 90);
 }
 
 #playerName::placeholder {
-  color: #000000BF;
+  color: #000000bf;
 }
 
 #playerName:hover::placeholder {
@@ -74,7 +71,8 @@ body {
   font-family: "Silkscreen", sans-serif;
   border: none;
   border-radius: 2px;
-  color: #000000BF;
+  color: #000000bf;
+  width: 330px;
   background-color: rgb(155, 186, 90);
   margin-top: 10px;
   font-size: 25px;
@@ -82,7 +80,7 @@ body {
 
 #startGameBtn:hover {
   font-family: "Silkscreen", sans-serif;
-  background-color: #000000BF;
+  background-color: #000000bf;
   color:rgb(155, 186, 90)
 }
 
@@ -91,7 +89,7 @@ body {
   font-weight: bold;
   border: none;
   border-radius: 2px;
-  color: #000000BF;
+  color: #000000bf;
   background-color: rgb(155, 186, 90);
   margin-top: 10px;
   font-size: 25px;
@@ -99,6 +97,12 @@ body {
 
 #Header:hover {
   font-family: "Silkscreen", sans-serif;
-  background-color: #000000BF;
+  background-color: #000000bf;
   color:rgb(155, 186, 90)
+}
+
+li {
+  font-family: "Silkscreen", sans-serif;
+  color: #000000bf;
+  font-size: 25px;
 }
