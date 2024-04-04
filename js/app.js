@@ -29,18 +29,19 @@ startGameBtn.addEventListener("click", startGame)
 function startGame() {
   startGameBtn.disabled = true
   resetGame()
-  gameInterval = setInterval(updateGame, 100)
+  gameInterval = setInterval(updateGame, 500)
 }
 
 //if there is a collision stop the game if not continue
 function updateGame() {
   if (checkCollision()) {
+    clearInterval(gameInterval)
     saveScore()
-    startGameBtn.disabled = true
+    startGameBtn.disabled = false
   } else {
     generateBoard()
-    generateFood()
     generateSnake()
+    generateFood()
     moveSnake()
   }
 }
@@ -106,7 +107,11 @@ function changeDirection(event) {
 
 function checkCollision() {
   const head = snake[0]
-  if (head.x < 0 || head.x > boardSize || head.y < 0 || head.y > boardSize ) {
+  if (head.x < 0 || head.x >= boardSize || head.y < 0 || head.y >= boardSize) {
+    return true
+  }
+  const bodyWithoutHead = snake.slice(1)
+  if (bodyWithoutHead.some(segment => segment.x === head.x && segment.y === head.y)) {
     return true
   }
   return false
