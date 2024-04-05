@@ -1,4 +1,4 @@
-## `Retro Snake` 🐍
+# `Retro Snake` 🐍
 ***
 
 ![alt text](./assets/image.png)
@@ -18,6 +18,10 @@
 - Netlify
 - Git
 - GitHub
+
+## `Attributions` ❖
+
+- I got my Favicon from [here](https://www.favicon.cc/)
 
 ## `Ice Box` ❄️
 
