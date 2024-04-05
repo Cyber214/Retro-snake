@@ -18,7 +18,7 @@ const gameBoard = document.querySelector("#gameBoard")
 const scoreEl = document.querySelector("#score")
 const scoreList = document.querySelector("#scoreList")
 const startGameBtn = document.querySelector("#startGameBtn")
-const endGameMessage = document.querySelector("#endMessage")
+const gameMessage = document.querySelector("#message")
 
 //-----------event listners-------//
 
@@ -29,13 +29,16 @@ startGameBtn.addEventListener("click", startGame)
 
 function startGame() {
   startGameBtn.disabled = true
+  if (playerName === "") {
+    gameMessage.textContent = "Please enter your name before starting the game."
+    gameMessage.style.fontWeight = "bold"
+  }
   resetGame()
   gameInterval = setInterval(updateGame, 100)
 }
 
 //if there is a collision stop the game if not continue
 function updateGame() {
-  console.log(updateGame)
   if (checkCollision()) {
     clearInterval(gameInterval)
     endMessage()
@@ -156,5 +159,6 @@ function displayScoreHistory() {
 }
 
 function endMessage() {
-  scoreEl.textContent = "GAME OVER"
+  gameMessage.textContent = "GAME OVER"
+  gameMessage.style.fontWeight = "bold"
 }
