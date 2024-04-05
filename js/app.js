@@ -4,8 +4,8 @@ const boardSize = 20
 
 //------------variables--------//
 
-let snake = [{ x: 10, y: 10 }]
-let food = { x: 15, y: 15}
+let snake = [{ x: 6, y: 6 }]
+let food = { x: 13, y: 13}
 let dx = 0
 let dy = 0
 let score = 0
@@ -18,6 +18,7 @@ const gameBoard = document.querySelector("#gameBoard")
 const scoreEl = document.querySelector("#score")
 const scoreList = document.querySelector("#scoreList")
 const startGameBtn = document.querySelector("#startGameBtn")
+const endGameMessage = document.querySelector("#endMessage")
 
 //-----------event listners-------//
 
@@ -34,8 +35,10 @@ function startGame() {
 
 //if there is a collision stop the game if not continue
 function updateGame() {
+  console.log(updateGame)
   if (checkCollision()) {
     clearInterval(gameInterval)
+    endMessage()
     saveScore()
     startGameBtn.disabled = false
   } else {
@@ -47,7 +50,8 @@ function updateGame() {
 }
 
 function resetGame() {
-  snake = [{ x: 10, y: 10 }]
+  snake = [{ x: 6, y: 6 }]
+  food = { x: 13, y: 13}
   dx = 0
   dy = 0
   score = 0
@@ -133,9 +137,10 @@ function savePlayerName() {
 }
 
 function saveScore() {
+  savePlayerName()
   scoreHistory.push({name: playerName, score: score })
   scoreHistory.sort((a, b) => {
-    b.score - a.score
+    return b.score - a.score
   })
   scoreHistory = scoreHistory.slice(0, 5)
   displayScoreHistory()
@@ -148,4 +153,8 @@ function displayScoreHistory() {
     listItem.textContent = item.name + ": " + item.score
     scoreList.appendChild(listItem)
   })
+}
+
+function endMessage() {
+  scoreEl.textContent = "GAME OVER"
 }

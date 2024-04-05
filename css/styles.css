@@ -62,9 +62,9 @@ body {
   border-radius: 2px;
   color: #080c07bf;
   text-align: center;
-  width: 400px;
+  width: 380px;
   background-color: rgb(155, 186, 90);
-  margin-top: 20px;
+  margin-top: 5px;
   font-size: 25px;
 }
 
@@ -99,4 +99,5 @@ li {
   font-family: "Silkscreen", sans-serif;
   color: #080c07bf;
   font-size: 25px;
+  list-style-type: decimal;
 }
