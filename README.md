@@ -21,10 +21,10 @@
 
 ## `Ice Box` ❄️
 
-- [x] add functionality do end game if snake colides with the game board
-- [x] add functionality do end game if snake colides with itself
-- [x] add score history that puts highest score on top
-- previous score list to display the last 5 scores
+- [x] Add functionality do end game if snake colides with the game board
+- [x] Add functionality to end game if snake colides with itself
+- [x] Add score history that puts highest score on top
+- Previous score list to display the last 5 scores
 - Buttons to change the game speed
-- dark mode
+- Dark mode
 - Audio
