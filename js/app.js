@@ -18,7 +18,6 @@ const gameBoard = document.querySelector("#gameBoard")
 const scoreEl = document.querySelector("#score")
 const scoreList = document.querySelector("#scoreList")
 const startGameBtn = document.querySelector("#startGameBtn")
-const gameMessage = document.querySelector("#message")
 
 //-----------event listners-------//
 
@@ -155,6 +154,5 @@ function displayScoreHistory() {
 }
 
 function endMessage() {
-  gameMessage.textContent = "Game over"
-  gameMessage.style.fontWeight = "bold"
+  scoreEl.textContent = "Game over"
 }
