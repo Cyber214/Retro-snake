@@ -4,7 +4,7 @@
 ![alt text](./assets/image.png)
 ![alt text](./assets/image-1.png)
 
-#### `Description`
+#### `Description` 📝
 ***
 #### This is a simple pixel-based snake game implemented using HTML, CSS, and JavaScript. The player controls a snake on a grid-based board, aiming to eat food pellets to grow longer while avoiding collisions with the walls and the snake's own body. The game ends when the snake collides with a wall or itself. The player can enter their name to track their score, which is displayed alongside the top five high scores.
 
