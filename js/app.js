@@ -29,10 +29,6 @@ startGameBtn.addEventListener("click", startGame)
 
 function startGame() {
   startGameBtn.disabled = true
-  if (playerName === "") {
-    gameMessage.textContent = "Please enter your name before starting the game."
-    gameMessage.style.fontWeight = "bold"
-  }
   resetGame()
   gameInterval = setInterval(updateGame, 100)
 }
@@ -159,6 +155,6 @@ function displayScoreHistory() {
 }
 
 function endMessage() {
-  gameMessage.textContent = "GAME OVER"
+  gameMessage.textContent = "Game over"
   gameMessage.style.fontWeight = "bold"
 }

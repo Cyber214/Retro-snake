@@ -1,6 +1,6 @@
 body {
   background-color: rgb(155, 186, 90);
-  color: #080c07bf;
+  color: #050805bf;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,14 +13,14 @@ body {
   font-size: 25px;
   border: none;
   border-radius: 2px;
-  color: #080c07bf;
+  color: #050805bf;
   background-color: rgb(155, 186, 90);
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
 .btn:hover {
-  background-color: #080c07bf;
+  background-color: #050805bf;
   color:rgb(155, 186, 90)
 }
 
@@ -36,7 +36,7 @@ body {
   flex-wrap: wrap;
   width: 500px;
   height: 500px;
-  border: 5px solid #080c07bf;
+  border: 5px solid #050805bf;
 }
 
 .cell {
@@ -49,18 +49,18 @@ body {
 }
 
 .snake {
-  background-color: #080c07bf;
+  background-color: #050805bf;
 }
 
 .food {
-  background-color: #080c07bf;
+  background-color: #050805bf;
 }
 
 #playerName {
   font-family: "Silkscreen", sans-serif;
   border: none;
   border-radius: 2px;
-  color: #080c07bf;
+  color: #050805bf;
   text-align: center;
   width: 380px;
   background-color: rgb(155, 186, 90);
@@ -70,12 +70,12 @@ body {
 
 #playerName:hover {
   font-family: "Silkscreen", sans-serif;
-  background-color: #080c07bf;
+  background-color: #050805bf;
   color:rgb(155, 186, 90);
 }
 
 #playerName::placeholder {
-  color: #080c07bf;
+  color: #050805bf;
 }
 
 #playerName:hover::placeholder {
@@ -97,7 +97,7 @@ body {
 
 li {
   font-family: "Silkscreen", sans-serif;
-  color: #080c07bf;
+  color: #050805bf;
   font-size: 25px;
   list-style-type: decimal;
 }
