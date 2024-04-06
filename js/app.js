@@ -141,16 +141,21 @@ function saveScore() {
     return b.score - a.score
   })
   scoreHistory = scoreHistory.slice(0, 5)
+  localStorage.setItem("previousScore", JSON.stringify(scoreHistory))
   displayScoreHistory()
 }
 
 function displayScoreHistory() {
+  const storedHistory = localStorage.getItem("previousScore")
   scoreList.innerHTML = ""
-  scoreHistory.forEach(item => {
-    const listItem = document.createElement("li")
-    listItem.textContent = item.name + ": " + item.score
-    scoreList.appendChild(listItem)
-  })
+  if (storedHistory) {
+    const parsedHistory = JSON.parse(storedHistory)
+    parsedHistory.forEach(item => {
+      const listItem = document.createElement("li")
+      listItem.textContent = item.name + ": " + item.score
+      scoreList.appendChild(listItem)
+    })
+  }
 }
 
 function endMessage() {
