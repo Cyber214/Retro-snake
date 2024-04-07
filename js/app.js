@@ -149,15 +149,15 @@ function displayScoreHistory() {
   const storedHistory = localStorage.getItem("previousScore")
   if (storedHistory) {
     const parsedHistory = JSON.parse(storedHistory)
-    scoreList.innerHTML = " "
+    scoreList.innerHTML = ""
     parsedHistory.forEach(item => {
       const listItem = document.createElement("li")
       listItem.textContent = item.name + ": " + item.score
       scoreList.appendChild(listItem)
     })
-    return "score history loaded"
+    return "High Scores"
   }
-  return "no score history found"
+  return "No High Scores Found"
 }
 
 window.onload = function() {
