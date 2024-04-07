@@ -33,11 +33,11 @@ function startGame() {
 }
 
 //if there is a collision stop the game if not continue
-function updateGame() {
+function updateGame(storedHistory) {
   if (checkCollision()) {
     clearInterval(gameInterval)
     endMessage()
-    saveScore()
+    saveScore(storedHistory)
     startGameBtn.disabled = false
   } else {
     generateBoard()
@@ -147,15 +147,22 @@ function saveScore() {
 
 function displayScoreHistory() {
   const storedHistory = localStorage.getItem("previousScore")
-  scoreList.innerHTML = ""
   if (storedHistory) {
     const parsedHistory = JSON.parse(storedHistory)
+    scoreList.innerHTML = " "
     parsedHistory.forEach(item => {
       const listItem = document.createElement("li")
       listItem.textContent = item.name + ": " + item.score
       scoreList.appendChild(listItem)
     })
+    return "score history loaded"
   }
+  return "no score history found"
+}
+
+window.onload = function() {
+  const loadHistory = displayScoreHistory()
+  document.getElementById("head2").textContent = loadHistory
 }
 
 function endMessage() {
