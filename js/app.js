@@ -141,28 +141,16 @@ function saveScore() {
     return b.score - a.score
   })
   scoreHistory = scoreHistory.slice(0, 5)
-  localStorage.setItem("previousScore", JSON.stringify(scoreHistory))
   displayScoreHistory()
 }
 
 function displayScoreHistory() {
-  const storedHistory = localStorage.getItem("previousScore")
-  if (storedHistory) {
-    const parsedHistory = JSON.parse(storedHistory)
-    scoreList.innerHTML = ""
-    parsedHistory.forEach(item => {
-      const listItem = document.createElement("li")
-      listItem.textContent = item.name + ": " + item.score
-      scoreList.appendChild(listItem)
-    })
-    return "High Scores"
-  }
-  return "No High Scores Found"
-}
-
-window.onload = function() {
-  const loadHistory = displayScoreHistory()
-  document.getElementById("head2").textContent = loadHistory
+  scoreList.innerHTML = ""
+  scoreHistory.forEach(item => {
+    const listItem = document.createElement("li")
+    listItem.textContent = item.name + ": " + item.score
+    scoreList.appendChild(listItem)
+  })
 }
 
 function endMessage() {
