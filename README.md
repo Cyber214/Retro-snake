@@ -29,6 +29,6 @@
 - [x] Add functionality to end game if snake colides with itself
 - [x] Add score history that puts highest score on top
 - Previous score list to display the last 5 scores
-- Buttons to change the game speed
+- [x] Buttons to change the game speed
 - Dark mode
 - Audio
