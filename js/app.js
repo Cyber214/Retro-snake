@@ -15,7 +15,7 @@ let gameInterval
 let gameSpeed = {
   slug: 160,
   worm: 110,
-  python: 70
+  python: 75
 }
 
 //--------cached elements---------//
