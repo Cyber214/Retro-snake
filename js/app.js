@@ -49,11 +49,11 @@ function changeSpeed(speed) {
   gameInterval = setInterval(updateGame, gameSpeed[speed])
 }
 
-function updateGame(storedHistory) {
+function updateGame() {
   if (checkCollision()) {
     clearInterval(gameInterval)
     endMessage()
-    saveScore(storedHistory)
+    saveScore()
     startGameBtn.disabled = false
   } else {
     generateBoard()
@@ -152,11 +152,10 @@ function savePlayerName() {
 
 function saveScore() {
   savePlayerName()
-  scoreHistory.push({name: playerName, score: score })
-  scoreHistory.sort((a, b) => {
-    return b.score - a.score
-  })
+  scoreHistory.push({ name: playerName, score: score })
+  scoreHistory.sort((a, b) => b.score - a.score)
   scoreHistory = scoreHistory.slice(0, 5)
+  localStorage.setItem("previousScore", JSON.stringify(scoreHistory))
   displayScoreHistory()
 }
 
@@ -168,6 +167,14 @@ function displayScoreHistory() {
     scoreList.appendChild(listItem)
   })
 }
+
+window.addEventListener('load', () => {
+  const storedHistory = JSON.parse(localStorage.getItem("previousScore"))
+  if (storedHistory) {
+    scoreHistory = storedHistory
+    displayScoreHistory()
+  }
+})
 
 function endMessage() {
   scoreEl.textContent = "Game over"
