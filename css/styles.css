@@ -62,7 +62,7 @@ body {
   border-radius: 2px;
   color: #000000bf;
   text-align: center;
-  width: 380px;
+  width: 350px;
   background-color: rgb(155, 186, 90);
   margin-top: 5px;
   font-size: 25px;
@@ -84,11 +84,11 @@ body {
 
 #head1 {
   font-weight: bold;
-  font-size: 50px;
+  font-size: 45px;
 }
 
 #startGameBtn {
-  width: 330px;
+  width: 280px;
 }
 
 #head2 {
@@ -98,6 +98,6 @@ body {
 li {
   font-family: "Silkscreen", sans-serif;
   color: #000000bf;
-  font-size: 25px;
+  font-size: 20px;
   list-style-type: decimal;
 }

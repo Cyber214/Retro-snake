@@ -11,6 +11,12 @@ let dy = 0
 let score = 0
 let playerName = ""
 let scoreHistory = []
+let gameInterval
+let gameSpeed = {
+  slug: 160,
+  worm: 110,
+  python: 70
+}
 
 //--------cached elements---------//
 
@@ -18,21 +24,31 @@ const gameBoard = document.querySelector("#gameBoard")
 const scoreEl = document.querySelector("#score")
 const scoreList = document.querySelector("#scoreList")
 const startGameBtn = document.querySelector("#startGameBtn")
+const slugSp = document.getElementById("slugBtn")
+const wormSp = document.getElementById("wormBtn")
+const pythonSp = document.getElementById("pythonBtn")
 
 //-----------event listners-------//
 
 document.addEventListener("keydown", changeDirection)
 startGameBtn.addEventListener("click", startGame)
+slugSp.addEventListener("click", () => changeSpeed("slug"))
+wormSp.addEventListener("click", () => changeSpeed("worm"))
+pythonSp.addEventListener("click", () => changeSpeed("python"))
 
 //-----------functions-----------//
 
 function startGame() {
   startGameBtn.disabled = true
   resetGame()
-  gameInterval = setInterval(updateGame, 100)
+  gameInterval = setInterval(updateGame, gameSpeed.worm)
 }
 
-//if there is a collision stop the game if not continue
+function changeSpeed(speed) {
+  clearInterval(gameInterval)
+  gameInterval = setInterval(updateGame, gameSpeed[speed])
+}
+
 function updateGame(storedHistory) {
   if (checkCollision()) {
     clearInterval(gameInterval)
