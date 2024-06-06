@@ -29,6 +29,10 @@ const startGameBtn = document.querySelector("#startGameBtn")
 const slugSp = document.getElementById("slugBtn")
 const wormSp = document.getElementById("wormBtn")
 const pythonSp = document.getElementById("pythonBtn")
+const upBtn = document.getElementById("upBtn")
+const downBtn = document.getElementById("downBtn")
+const leftBtn = document.getElementById("leftBtn")
+const rightBtn = document.getElementById("rightBtn")
 
 //-----------event listeners-------//
 
@@ -37,6 +41,10 @@ startGameBtn.addEventListener("click", startGame)
 slugSp.addEventListener("click", () => changeSpeed("slug"))
 wormSp.addEventListener("click", () => changeSpeed("worm"))
 pythonSp.addEventListener("click", () => changeSpeed("python"))
+upBtn.addEventListener("click", () => changeDirection({ key: "ArrowUp" }))
+downBtn.addEventListener("click", () => changeDirection({ key: "ArrowDown" }))
+leftBtn.addEventListener("click", () => changeDirection({ key: "ArrowLeft" }))
+rightBtn.addEventListener("click", () => changeDirection({ key: "ArrowRight" }))
 
 //-----------functions-----------//
 
@@ -207,3 +215,4 @@ window.addEventListener('load', () => {
 function endMessage() {
   scoreEl.textContent = "Game over"
 }
+

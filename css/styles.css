@@ -6,6 +6,8 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .btn {
@@ -26,6 +28,24 @@ body {
   color: rgb(155, 186, 90);
 }
 
+.space {
+  font-family: "Silkscreen", sans-serif;
+  font-size: 20px;
+  border: none;
+  border-radius: 2px;
+  background-color: rgb(155, 186, 90);
+  cursor: pointer;
+}
+
+.space:hover {
+  background-color: #000000bf;
+  color: rgb(155, 186, 90);
+}
+
+img {
+  height: 30px;
+}
+
 #speedPrompt {
   display: flex;
   flex-direction: column;
@@ -35,7 +55,8 @@ body {
 
 #gameSpeed {
   display: flex;
-  gap: 40px;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 #gameContainer {
@@ -43,6 +64,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 5vw;
+  flex-wrap: wrap;
 }
 
 #previousScoresContainer,
@@ -50,22 +72,22 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 20px;
+  margin: 10px;
 }
 
 #gameBoard {
   display: flex;
   flex-wrap: wrap;
-  width: 500px;
-  height: 500px;
+  width: 80vw;
+  max-width: 500px;
+  height: 80vw;
+  max-height: 500px;
   border: 5px solid #000000bf;
 }
 
 .cell {
-  width: 25px;
-  height: 25px;
-  max-width: 25px;
-  max-height: 25px;
+  width: 5%;
+  height: 5%;
   box-sizing: border-box;
   background-color: rgb(155, 186, 90);
 }
@@ -84,7 +106,8 @@ body {
   border-radius: 2px;
   color: #000000bf;
   text-align: center;
-  width: 350px;
+  width: 80vw;
+  max-width: 350px;
   background-color: rgb(155, 186, 90);
   margin-top: 5px;
   font-size: 25px;
@@ -110,7 +133,8 @@ body {
 }
 
 #startGameBtn {
-  width: 280px;
+  width: 80vw;
+  max-width: 280px;
 }
 
 #head2 {
@@ -122,4 +146,17 @@ li {
   color: #000000bf;
   font-size: 20px;
   list-style-type: decimal;
+}
+
+#mobileControls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+#mobileControls > div {
+  display: flex;
+  gap: 5px;
 }
