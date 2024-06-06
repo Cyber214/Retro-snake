@@ -26,11 +26,31 @@ body {
   color: rgb(155, 186, 90);
 }
 
-#gameContainer {
+#speedPrompt {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 10px;
+}
+
+#gameSpeed {
+  display: flex;
+  gap: 40px;
+}
+
+#gameContainer {
+  display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 5vw;
+}
+
+#previousScoresContainer,
+#highScoresContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px;
 }
 
 #gameBoard {

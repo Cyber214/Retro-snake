@@ -11,6 +11,7 @@ let dy = 0
 let score = 0
 let playerName = ""
 let scoreHistory = []
+let previousScores = []
 let gameInterval = null
 let gameSpeed = {
   slug: 160,
@@ -23,6 +24,7 @@ let gameSpeed = {
 const gameBoard = document.querySelector("#gameBoard")
 const scoreEl = document.querySelector("#score")
 const scoreList = document.querySelector("#scoreList")
+const previousScoreList = document.querySelector("#previousScoreList")
 const startGameBtn = document.querySelector("#startGameBtn")
 const slugSp = document.getElementById("slugBtn")
 const wormSp = document.getElementById("wormBtn")
@@ -163,8 +165,12 @@ function saveScore() {
   }
   scoreHistory.sort((a, b) => b.score - a.score)
   scoreHistory = scoreHistory.slice(0, 5)
+  previousScores.unshift({ name: playerName, score: score })
+  previousScores = previousScores.slice(0, 5)
   localStorage.setItem("previousScore", JSON.stringify(scoreHistory))
+  localStorage.setItem("lastScores", JSON.stringify(previousScores))
   displayHighScore()
+  displayPreviousScores()
 }
 
 function displayHighScore() {
@@ -176,11 +182,25 @@ function displayHighScore() {
   })
 }
 
+function displayPreviousScores() {
+  previousScoreList.innerHTML = ""
+  previousScores.forEach(item => {
+    const listItem = document.createElement("li")
+    listItem.textContent = item.name + ": " + item.score
+    previousScoreList.appendChild(listItem)
+  })
+}
+
 window.addEventListener('load', () => {
   const storedHistory = JSON.parse(localStorage.getItem("previousScore"))
+  const storedPreviousScores = JSON.parse(localStorage.getItem("lastScores"))
   if (storedHistory) {
     scoreHistory = storedHistory
     displayHighScore()
+  }
+  if (storedPreviousScores) {
+    previousScores = storedPreviousScores
+    displayPreviousScores()
   }
 })
 
