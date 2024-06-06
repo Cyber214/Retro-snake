@@ -5,13 +5,13 @@ const boardSize = 20
 //------------variables--------//
 
 let snake = [{ x: 6, y: 6 }]
-let food = { x: 13, y: 13}
+let food = { x: 13, y: 13 }
 let dx = 0
 let dy = 0
 let score = 0
 let playerName = ""
 let scoreHistory = []
-let gameInterval
+let gameInterval = null
 let gameSpeed = {
   slug: 160,
   worm: 110,
@@ -28,7 +28,7 @@ const slugSp = document.getElementById("slugBtn")
 const wormSp = document.getElementById("wormBtn")
 const pythonSp = document.getElementById("pythonBtn")
 
-//-----------event listners-------//
+//-----------event listeners-------//
 
 document.addEventListener("keydown", changeDirection)
 startGameBtn.addEventListener("click", startGame)
@@ -45,13 +45,16 @@ function startGame() {
 }
 
 function changeSpeed(speed) {
-  clearInterval(gameInterval)
-  gameInterval = setInterval(updateGame, gameSpeed[speed])
+  if (gameInterval) {
+    clearInterval(gameInterval)
+    gameInterval = setInterval(updateGame, gameSpeed[speed])
+  }
 }
 
 function updateGame() {
   if (checkCollision()) {
     clearInterval(gameInterval)
+    gameInterval = null
     endMessage()
     saveScore()
     startGameBtn.disabled = false
@@ -65,7 +68,7 @@ function updateGame() {
 
 function resetGame() {
   snake = [{ x: 6, y: 6 }]
-  food = { x: 13, y: 13}
+  food = { x: 13, y: 13 }
   dx = 0
   dy = 0
   score = 0
@@ -78,7 +81,7 @@ function generateBoard() {
   for (let y = 0; y < boardSize; y++) {
     for (let x = 0; x < boardSize; x++) {
       const cell = document.createElement("div")
-      //add class of cell and x and y coordinate
+      // Add class of cell and x and y coordinate
       cell.classList.add("cell")
       cell.setAttribute("data-x", x)
       cell.setAttribute("data-y", y)
@@ -99,8 +102,8 @@ function moveSnake() {
   snake.unshift(head)
 
   if (head.x === food.x && head.y === food.y) {
-    food.x = Math.floor(Math.random() * (boardSize))
-    food.y = Math.floor(Math.random() * (boardSize))
+    food.x = Math.floor(Math.random() * boardSize)
+    food.y = Math.floor(Math.random() * boardSize)
     increaseScore()
   } else {
     snake.pop()
@@ -109,16 +112,16 @@ function moveSnake() {
 
 function changeDirection(event) {
   const key = event.key
-  if (key === "ArrowUp" && dy === 0) {
+  if ((key === "ArrowUp" || key === "w") && dy === 0) {
     dx = 0
     dy = -1
-  } else if (key === "ArrowDown" && dy === 0) {
+  } else if ((key === "ArrowDown" || key === "s") && dy === 0) {
     dx = 0
     dy = 1
-  } else if (key === "ArrowLeft" && dx === 0) {
+  } else if ((key === "ArrowLeft" || key === "a") && dx === 0) {
     dx = -1
     dy = 0
-  } else if (key === "ArrowRight" && dx === 0) {
+  } else if ((key === "ArrowRight" || key === "d") && dx === 0) {
     dx = 1
     dy = 0
   }
@@ -152,14 +155,19 @@ function savePlayerName() {
 
 function saveScore() {
   savePlayerName()
-  scoreHistory.push({ name: playerName, score: score })
+  const existingPlayer = scoreHistory.find(item => item.name === playerName)
+  if (existingPlayer) {
+    existingPlayer.score = Math.max(existingPlayer.score, score)
+  } else {
+    scoreHistory.push({ name: playerName, score: score })
+  }
   scoreHistory.sort((a, b) => b.score - a.score)
   scoreHistory = scoreHistory.slice(0, 5)
   localStorage.setItem("previousScore", JSON.stringify(scoreHistory))
-  displayScoreHistory()
+  displayHighScore()
 }
 
-function displayScoreHistory() {
+function displayHighScore() {
   scoreList.innerHTML = ""
   scoreHistory.forEach(item => {
     const listItem = document.createElement("li")
@@ -172,7 +180,7 @@ window.addEventListener('load', () => {
   const storedHistory = JSON.parse(localStorage.getItem("previousScore"))
   if (storedHistory) {
     scoreHistory = storedHistory
-    displayScoreHistory()
+    displayHighScore()
   }
 })
 

@@ -17,11 +17,13 @@ body {
   background-color: rgb(155, 186, 90);
   margin-top: 5px;
   margin-bottom: 5px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .btn:hover {
   background-color: #000000bf;
-  color:rgb(155, 186, 90)
+  color: rgb(155, 186, 90);
 }
 
 #gameContainer {
@@ -71,7 +73,7 @@ body {
 #playerName:hover {
   font-family: "Silkscreen", sans-serif;
   background-color: #000000bf;
-  color:rgb(155, 186, 90);
+  color: rgb(155, 186, 90);
 }
 
 #playerName::placeholder {
@@ -79,7 +81,7 @@ body {
 }
 
 #playerName:hover::placeholder {
-  color:rgb(155, 186, 90);
+  color: rgb(155, 186, 90);
 }
 
 #head1 {
