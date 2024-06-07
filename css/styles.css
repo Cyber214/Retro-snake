@@ -41,6 +41,22 @@ body {
   color: rgb(155, 186, 90);
 }
 
+.ctrl {
+  font-family: "Silkscreen", sans-serif;
+  font-size: 20px;
+  border: none;
+  border-radius: 2px;
+  color: #000000bf;
+  background-color: rgb(155, 186, 90);
+  text-align: center;
+  cursor: pointer;
+}
+
+.ctrl:hover {
+  background-color: #000000bf;
+  color: rgb(155, 186, 90);
+}
+
 img {
   height: 40px;
 }
