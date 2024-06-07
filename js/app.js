@@ -26,6 +26,7 @@ const gameBoard = document.querySelector("#gameBoard")
 const scoreEl = document.querySelector("#score")
 const scoreList = document.querySelector("#scoreList")
 const previousScoreList = document.querySelector("#previousScoreList")
+const nextBtn = document.querySelector("#nextBtn")
 const startGameBtn = document.querySelector("#startGameBtn")
 const slugSp = document.getElementById("slugBtn")
 const wormSp = document.getElementById("wormBtn")
@@ -41,6 +42,7 @@ const speedPrompt = document.getElementById("speedPrompt")
 //-----------event listeners-------//
 
 document.addEventListener("keydown", changeDirection)
+nextBtn.addEventListener("click", nextPage)
 startGameBtn.addEventListener("click", startGame)
 slugSp.addEventListener("click", () => changeSpeed("slug"))
 wormSp.addEventListener("click", () => changeSpeed("worm"))
@@ -54,7 +56,7 @@ rightBtn.addEventListener("click", () => changeDirection({ key: "ArrowRight" }))
 
 function startGame() {
   gameIsInPlay = true
-  startGameBtn.disabled = true
+  nextBtn.disabled = true
   resetGame()
   render()
   gameInterval = setInterval(updateGame, gameSpeed.worm)
@@ -73,7 +75,7 @@ function updateGame() {
     gameInterval = null
     endMessage()
     saveScore()
-    startGameBtn.disabled = false
+    nextBtn.disabled = false
     gameIsInPlay = false
     render()
   } else {
@@ -145,10 +147,12 @@ function changeDirection(event) {
 }
 
 function checkCollision() {
+  // check for collision with game board
   const head = snake[0]
   if (head.x < 0 || head.x >= boardSize || head.y < 0 || head.y >= boardSize) {
     return true
   }
+  // check for self collition
   const bodyWithoutHead = snake.slice(1)
   if (bodyWithoutHead.some(segment => segment.x === head.x && segment.y === head.y)) {
     return true
@@ -224,26 +228,47 @@ function endMessage() {
   scoreEl.textContent = "Game over"
 }
 
+function nextPage() {
+  // Display
+  head1.style.display = ''
+  speedPrompt.style.display = ''
+  startGameBtn.style.display = ''
+  // Hide
+  gameBoard.style.display = 'none'
+  highScoresContainer.style.display = 'none'
+  keyValScore.style.display = 'none'
+  mobileControls.style.display = 'none'
+  nextBtn.style.display = 'none'
+  playerNameInput.style.display = 'none'
+  previousScoresContainer.style.display = 'none'
+}
+
 function render() {
   if (gameIsInPlay) {
+    // Display
     gameBoard.style.display = ''
-    mobileControls.style.display = ''
-    playerNameInput.style.display = 'none'
-    startGameBtn.style.display = 'none'
-    previousScoresContainer.style.display = 'none'
-    highScoresContainer.style.display = 'none'
-    speedPrompt.style.display = ''
-    head1.style.display = 'none'
-    keyValScore.style.display = ''
-  } else {
-    gameBoard.style.display = 'none'
-    mobileControls.style.display = 'none'
-    playerNameInput.style.display = ''
-    startGameBtn.style.display = ''
-    speedPrompt.style.display = 'none'
-    previousScoresContainer.style.display = ''
-    highScoresContainer.style.display = ''
     head1.style.display = ''
+    keyValScore.style.display = ''
+    mobileControls.style.display = ''
+    // Hide
+    highScoresContainer.style.display = 'none'
+    nextBtn.style.display = 'none'
+    playerNameInput.style.display = 'none'
+    previousScoresContainer.style.display = 'none'
+    speedPrompt.style.display = 'none'
+    startGameBtn.style.display = 'none'
+  } else {
+    // Display
+    head1.style.display = ''
+    highScoresContainer.style.display = ''
+    playerNameInput.style.display = ''
+    previousScoresContainer.style.display = ''
+    nextBtn.style.display = ''
+    // Hide
+    gameBoard.style.display = 'none'
     keyValScore.style.display = 'none'
+    mobileControls.style.display = 'none'
+    speedPrompt.style.display = 'none'
+    startGameBtn.style.display = 'none'
   }
 }
