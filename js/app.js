@@ -234,6 +234,7 @@ function render() {
     highScoresContainer.style.display = 'none'
     speedPrompt.style.display = ''
     head1.style.display = 'none'
+    keyValScore.style.display = ''
   } else {
     gameBoard.style.display = 'none'
     mobileControls.style.display = 'none'
@@ -243,5 +244,6 @@ function render() {
     previousScoresContainer.style.display = ''
     highScoresContainer.style.display = ''
     head1.style.display = ''
+    keyValScore.style.display = 'none'
   }
 }
