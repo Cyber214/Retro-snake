@@ -233,6 +233,7 @@ function render() {
     previousScoresContainer.style.display = 'none'
     highScoresContainer.style.display = 'none'
     speedPrompt.style.display = ''
+    head1.style.display = 'none'
   } else {
     gameBoard.style.display = 'none'
     mobileControls.style.display = 'none'
@@ -241,5 +242,6 @@ function render() {
     speedPrompt.style.display = 'none'
     previousScoresContainer.style.display = ''
     highScoresContainer.style.display = ''
+    head1.style.display = ''
   }
 }
