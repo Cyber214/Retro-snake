@@ -28,7 +28,7 @@ body {
   color: rgb(155, 186, 90);
 }
 
-.space {
+.space, .center {
   font-family: "Silkscreen", sans-serif;
   font-size: 20px;
   border: none;

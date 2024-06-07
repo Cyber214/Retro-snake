@@ -18,6 +18,7 @@ let gameSpeed = {
   worm: 110,
   python: 75
 }
+let gameIsInPlay = false
 
 //--------cached elements---------//
 
@@ -33,6 +34,9 @@ const upBtn = document.getElementById("upBtn")
 const downBtn = document.getElementById("downBtn")
 const leftBtn = document.getElementById("leftBtn")
 const rightBtn = document.getElementById("rightBtn")
+const playerNameInput = document.querySelector("#playerName")
+const mobileControls = document.getElementById("mobileControls")
+const speedPrompt = document.getElementById("speedPrompt")
 
 //-----------event listeners-------//
 
@@ -49,8 +53,10 @@ rightBtn.addEventListener("click", () => changeDirection({ key: "ArrowRight" }))
 //-----------functions-----------//
 
 function startGame() {
+  gameIsInPlay = true
   startGameBtn.disabled = true
   resetGame()
+  render()
   gameInterval = setInterval(updateGame, gameSpeed.worm)
 }
 
@@ -68,6 +74,8 @@ function updateGame() {
     endMessage()
     saveScore()
     startGameBtn.disabled = false
+    gameIsInPlay = false
+    render()
   } else {
     generateBoard()
     generateSnake()
@@ -91,7 +99,6 @@ function generateBoard() {
   for (let y = 0; y < boardSize; y++) {
     for (let x = 0; x < boardSize; x++) {
       const cell = document.createElement("div")
-      // Add class of cell and x and y coordinate
       cell.classList.add("cell")
       cell.setAttribute("data-x", x)
       cell.setAttribute("data-y", y)
@@ -160,7 +167,7 @@ function increaseScore() {
 }
 
 function savePlayerName() {
-  playerName = document.querySelector("#playerName").value
+  playerName = playerNameInput.value
 }
 
 function saveScore() {
@@ -210,9 +217,29 @@ window.addEventListener('load', () => {
     previousScores = storedPreviousScores
     displayPreviousScores()
   }
+  render()
 })
 
 function endMessage() {
   scoreEl.textContent = "Game over"
 }
 
+function render() {
+  if (gameIsInPlay) {
+    gameBoard.style.display = ''
+    mobileControls.style.display = ''
+    playerNameInput.style.display = 'none'
+    startGameBtn.style.display = 'none'
+    previousScoresContainer.style.display = 'none'
+    highScoresContainer.style.display = 'none'
+    speedPrompt.style.display = ''
+  } else {
+    gameBoard.style.display = 'none'
+    mobileControls.style.display = 'none'
+    playerNameInput.style.display = ''
+    startGameBtn.style.display = ''
+    speedPrompt.style.display = 'none'
+    previousScoresContainer.style.display = ''
+    highScoresContainer.style.display = ''
+  }
+}

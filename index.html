@@ -13,6 +13,14 @@
 </head>
 <body>
   <button class="btn" id="head1">RETRO SNAKE</button>
+  <div id="speedPrompt">
+    <button class="btn" id="head2">Select Game Speed</button>
+    <div id="gameSpeed">
+      <button class="btn" id="slugBtn">Slug</button>
+      <button class="btn" id="wormBtn">Worm</button>
+      <button class="btn" id="pythonBtn">Python</button>
+    </div>
+  </div>
   <button class="btn">Score: <span id="score">0</span></button>
   <div id="gameContainer">
     <div id="previousScoresContainer">
@@ -33,7 +41,7 @@
       <button class="space" id="leftBtn">
         <img src="./assets/leftB.png" alt="left">
       </button>
-      <button class="space" id="wormBtn">⬛️</button>
+      <button class="center">⬛️</button>
       <button class="space" id="rightBtn">
         <img src="./assets/rightB.png" alt="right">
       </button>
@@ -43,14 +51,6 @@
     </button>
   </div>
   <input type="text" id="playerName" placeholder="Enter Player Name">
-  <div id="speedPrompt">
-    <button class="btn" id="head2">Select Game Speed</button>
-    <div id="gameSpeed">
-      <button class="btn" id="slugBtn">Slug</button>
-      <button class="btn" id="wormBtn">Worm</button>
-      <button class="btn" id="pythonBtn">Python</button>
-    </div>
-  </div>
   <button class="btn" id="startGameBtn">Start New Game</button>
 </body>
 </html>
